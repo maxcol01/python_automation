@@ -22,3 +22,4 @@ with open("writeTo.txt", mode="w") as file:
 
 with open("writeTo.txt", mode="a") as file:
     file.write("et moi peduuuu \n")
+    file.writelines(["hihih\n", "hahaha\n"])

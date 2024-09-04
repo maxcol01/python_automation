@@ -13,6 +13,7 @@ header = ["Name", "Animal", "Food", "Costs (monthly)"]
 # we need to create (as for reading a csv) a csv object but
 # a writer one instead of a reader one !
 # then we can populate it !
+# if we have blank row: newline = "" in the open()
 with open("expensive_pet.csv", mode="w") as file:
     csv_writer = csv.writer(file)
 

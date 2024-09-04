@@ -27,14 +27,14 @@ def rating_category(rat: int) -> str:
 new_data = list()
 with open("dad_jokes.csv", mode="r") as original:
     dad_jokes = csv.reader(original)
-    next(dad_jokes)
+    headers = next(dad_jokes)
     for row in dad_jokes:
         rating = int(row[-1])
         rating_cat = rating_category(rat=rating)
         row.append(rating_cat)
         new_data.append(row)
-header_update = ["Id", "Joke", "rating", "rating category"]
+headers.append("rating category")
 with open("dad_jokes_update.csv", mode="w") as new:
     dad_jokes_updates = csv.writer(new)
-    dad_jokes_updates.writerow(header_update)
+    dad_jokes_updates.writerow(headers)
     dad_jokes_updates.writerows(new_data)

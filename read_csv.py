@@ -8,3 +8,4 @@ with open("toy_data.csv", mode="r") as file:
     # loop over the row of the csv (return a list of each element within a column
     for row in content:
         print(row)
+

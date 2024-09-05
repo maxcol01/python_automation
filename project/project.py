@@ -6,8 +6,8 @@ import csv
 def prepare_data(fd: list, mapp: dict, file_path_to) -> list:
     """
     Prepare the data into the specified format
-    :param fd:
-    :param mapp:
+    :param fd: the empty list for storage
+    :param mapp: the mapping of our price and name (dictionary)
     :param file_path_to:
     :return: the list of formatted data
     """
@@ -28,8 +28,8 @@ def prepare_data(fd: list, mapp: dict, file_path_to) -> list:
 def create_csv(hd: list, fd: list) -> None:
     """
     Create the csv summarizing the data
-    :param hd:
-    :param fd:
+    :param hd: the header (list) for our csv
+    :param fd: the formatted data from prepare_data()
     :return: Nothing
     """
     with open("sale_today.csv", mode="w") as new_file:

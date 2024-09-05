@@ -4,6 +4,13 @@ import csv
 
 #  Prepare the data
 def prepare_data(fd: list, mapp: dict, file_path_to) -> list:
+    """
+    Prepare the data into the specified format
+    :param fd:
+    :param mapp:
+    :param file_path_to:
+    :return: the list of formatted data
+    """
     with open(file_path_to, mode="r") as raw_file:
         content = raw_file.readlines()
         counter = 0
@@ -19,6 +26,12 @@ def prepare_data(fd: list, mapp: dict, file_path_to) -> list:
 
 #  Create the CSV file
 def create_csv(hd: list, fd: list) -> None:
+    """
+    Create the csv summarizing the data
+    :param hd:
+    :param fd:
+    :return: Nothing
+    """
     with open("sale_today.csv", mode="w") as new_file:
         data_info = csv.writer(new_file)
         data_info.writerow(hd)

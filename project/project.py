@@ -15,6 +15,7 @@ mapping = {"P001": ["Wireless Headphones", 100],
 
 header = ["Current Date", "Sale ID", "Product ID", "Name", "Price"]
 formatted_data = list()
+#  Prepare the data
 with open("product_sales.txt", mode="r") as raw_file:
     content = raw_file.readlines()
     counter = 0
@@ -26,4 +27,9 @@ with open("product_sales.txt", mode="r") as raw_file:
         list_data = [datetime.now().strftime("%Y-%M-%D"), counter, row, mapping[row][0], mapping[row][1]]
         formatted_data.append(list_data)
 
-print(formatted_data)
+#  Create the CSV file
+
+with open("sale_today.csv", mode="w") as new_file:
+    data_info = csv.writer(new_file)
+    data_info.writerow(header)
+    data_info.writerows(formatted_data)

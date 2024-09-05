@@ -1,6 +1,30 @@
 from datetime import datetime
 import csv
 
+
+#  Prepare the data
+def prepare_data(fd: list, mapp: dict, file_path_to) -> list:
+    with open(file_path_to, mode="r") as raw_file:
+        content = raw_file.readlines()
+        counter = 0
+        for row in content:
+            counter += 1
+            # remove the \n from the .readlines()
+            row = row.strip()
+            # format all the information within a list
+            list_data = [datetime.now().strftime("%Y-%M-%D"), counter, row, mapp[row][0], mapp[row][1]]
+            fd.append(list_data)
+    return fd
+
+
+#  Create the CSV file
+def create_csv(hd: list, fd: list) -> None:
+    with open("sale_today.csv", mode="w") as new_file:
+        data_info = csv.writer(new_file)
+        data_info.writerow(hd)
+        data_info.writerows(fd)
+
+
 mapping = {"P001": ["Wireless Headphones", 100],
            "P002": ["Laptop Backpack", 60],
            "P003": ["Bluetooth Speaker", 50],
@@ -15,21 +39,7 @@ mapping = {"P001": ["Wireless Headphones", 100],
 
 header = ["Current Date", "Sale ID", "Product ID", "Name", "Price"]
 formatted_data = list()
-#  Prepare the data
-with open("product_sales.txt", mode="r") as raw_file:
-    content = raw_file.readlines()
-    counter = 0
-    for row in content:
-        counter += 1
-        # remove the \n from the .readlines()
-        row = row.strip()
-        # format all the information within a list
-        list_data = [datetime.now().strftime("%Y-%M-%D"), counter, row, mapping[row][0], mapping[row][1]]
-        formatted_data.append(list_data)
+file_path = "product_sales.txt"
 
-#  Create the CSV file
 
-with open("sale_today.csv", mode="w") as new_file:
-    data_info = csv.writer(new_file)
-    data_info.writerow(header)
-    data_info.writerows(formatted_data)
+create_csv(hd=header, fd=prepare_data(fd=formatted_data, mapp=mapping, file_path_to=file_path))

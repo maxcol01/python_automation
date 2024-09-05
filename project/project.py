@@ -8,7 +8,7 @@ def prepare_data(fd: list, mapp: dict, file_path_to) -> list:
     Prepare the data into the specified format
     :param fd: the empty list for storage
     :param mapp: the mapping of our price and name (dictionary)
-    :param file_path_to:
+    :param file_path_to: path to the file we want to open
     :return: the list of formatted data
     """
     with open(file_path_to, mode="r") as raw_file:

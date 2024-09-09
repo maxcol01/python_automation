@@ -3,6 +3,7 @@ from pathlib import Path
 cwd = Path('.')
 print(cwd)
 
+# get the home of our system !
 home = Path.home()
 print(home)
 

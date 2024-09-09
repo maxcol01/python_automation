@@ -12,13 +12,12 @@ print(doc_path)
 
 # Check if the path and/or the file we are looking for exist !
 if (doc_path / "my_file.txt").exists():
-    print('ok')
+    print('ok the file exists')
+    with open(doc_path / "my_file.txt", mode="r") as file:
+        content = file.read()
+        print(content)
 else:
-    print('ko')
-
-with open(doc_path / "my_file.txt", mode="r") as file:
-    content = file.read()
-    print(content)
+    print('The file does not exist in the referenced folder path')
 
 #  get the parents of our doc_path
 print(doc_path.parent)

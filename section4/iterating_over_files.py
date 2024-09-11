@@ -8,6 +8,13 @@ from pathlib import Path
 
 path = Path.home() / 'to_the_folder'
 
+# using the following we can have access to many properties and methods !
 for item in path.iterdir():
     # this provides us a path to every files in our folder !
-    print(item)
+    #check if the item is a file
+    if item.is_file() and item.suffix == ".txt":
+        print(item.name, 'is a file')
+
+    # check if it is a directory
+    if item.is_dir():
+        print(item.name, 'is a directory')

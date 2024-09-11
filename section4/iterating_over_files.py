@@ -7,7 +7,7 @@ from datetime import datetime
 
 # Path object of the directory  we want to iterate over
 
-#path = Path.home() / 'to_the_folder'
+# path = Path.home() / 'to_the_folder'
 path = Path('.')
 # using the following we can have access to many properties and methods !
 for item in path.iterdir():

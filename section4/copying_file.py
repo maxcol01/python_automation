@@ -30,4 +30,4 @@ if not folder_dest.exists():
     sh.copytree(src=folder_src, dst=folder_dest, dirs_exist_ok=True)
 else:
     print("the folder already exits")
-    #  or using dir_exists_ok = True
+    #  or using dirs_exists_ok = True

@@ -20,3 +20,4 @@ src_folder2 = Path(".") / "python_automation" / "fun_w_folder" / "final_folder"
 dest_folder2 = new_folder / "final_folder"
 if src_folder2.exists():
     sh.move(src=src_folder2, dst=dest_folder2)
+
